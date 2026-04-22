@@ -128,4 +128,21 @@ This repository is organized so you can copy the `lua/` contents directly into y
 
 This package was assembled from your current MAUI workspace and attached tool modules present locally.
 
+Original Author of Maui = aquietone (My version highly edited/altered, arguably better)
+https://www.redguides.com/community/resources/maui-muleassist-ui.2207/
+
+Special Thanks for Spawnwatch, Ezinventory, Smartloot, Grouper (some ive revamped a tad for person reasons) = Andude2
+https://github.com/andude2/EZBots
+https://github.com/andude2/smartloot
+https://github.com/andude2/EZInventory
+
+Original Author Button Master = Special Ed
+https://www.redguides.com/community/resources/button-master.2174/
+
+LUA Console = Derple (Highly revamped from original)
+https://www.redguides.com/community/resources/lua-console.3170/
+
+Hunter Hud Original Author = Kaen
+https://www.redguides.com/community/resources/hunterhud.2339/
+
 
