@@ -131,10 +131,13 @@ This package was assembled from your current MAUI workspace and attached tool mo
 Original Author of Maui = aquietone (My version highly edited/altered, arguably better)
 https://www.redguides.com/community/resources/maui-muleassist-ui.2207/
 
-Special Thanks for Spawnwatch, Ezinventory, Smartloot, Grouper (some ive revamped a tad for person reasons) = Andude2
+Special Thanks for Spawnwatch, Ezinventory, Smartloot (some ive revamped a tad for person reasons) = Andude2
 - EZBots: https://github.com/andude2/EZBots
 - SmartLoot: https://github.com/andude2/smartloot
 - EZInventory: https://github.com/andude2/EZInventory
+
+Grouper Lua Source Credit = Vanders
+https://www.redguides.com/community/resources/grouper.2636/
 
 Original Author Button Master = Special Ed
 https://www.redguides.com/community/resources/button-master.2174/
