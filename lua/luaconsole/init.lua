@@ -202,14 +202,17 @@ end
 mq.imgui.init('LuaConsoleGUI', LuaConsoleGUI)
 mq.bind('/lc', function(arg)
     local cmd = tostring(arg or ''):lower()
-    if cmd == 'show' then
-        openGUI = true -- UPDATED: explicit show command keeps script running
+    if cmd == '' or cmd == 'show' then
+        openGUI = true -- UPDATED: default /lc behavior is now show (matches MAUI Open semantics)
     elseif cmd == 'hide' then
         openGUI = false -- UPDATED: explicit hide command no longer exits script
+    elseif cmd == 'toggle' then
+        openGUI = not openGUI -- UPDATED: retain explicit toggle behavior
     elseif cmd == 'quit' or cmd == 'stop' then
         running = false -- UPDATED: explicit quit command cleanly stops script
     else
-        openGUI = not openGUI -- UPDATED: keep legacy toggle behavior for /lc
+        openGUI = true -- UPDATED: explicit show command keeps script running
+        -- UPDATED: unknown args treated as show to avoid accidental close
     end
 end)
 
