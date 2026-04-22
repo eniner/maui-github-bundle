@@ -4154,7 +4154,7 @@ local function GetIntegrationTools()
             targetFolder = 'luaconsole',
             runCmd = '/lua run luaconsole',
             stopCmd = '/lua stop luaconsole',
-            openCmd = '/lc',
+            openCmd = '/luaconsole show', -- UPDATED: use explicit show command to avoid toggle-close behavior
             script = 'luaconsole',
         },
         {
