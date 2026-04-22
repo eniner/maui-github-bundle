@@ -1,6 +1,6 @@
 ﻿# MAUI + Attached Tool Suite
 
-A complete shareable package of **MAUI** and its attached Lua tools for MacroQuest (MQ3).
+A complete shareable package of **MAUI** and its attached Lua tools for MacroQuest (MQ).
 
 This repository is organized so you can copy the `lua/` contents directly into your MQ `lua` folder.
 
