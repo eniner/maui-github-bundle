@@ -4154,7 +4154,7 @@ local function GetIntegrationTools()
             targetFolder = 'luaconsole',
             runCmd = '/lua run luaconsole',
             stopCmd = '/lua stop luaconsole',
-            openCmd = '/luaconsole show', -- UPDATED: use explicit show command to avoid toggle-close behavior
+            openCmd = '/lua run luaconsole', -- UPDATED: use non-toggle open command compatible with RedGuides LuaConsole
             script = 'luaconsole',
         },
         {
@@ -4836,3 +4836,4 @@ end
 mq.unevent('NewSpellMemmed') -- UPDATED: unregister event handler on script shutdown
 mq.unbind('/maui') -- UPDATED: remove slash-command binding on script shutdown
 pcall(function() mq.imgui.destroy('MuleAssist') end) -- UPDATED: ensure ImGui callback is detached during normal termination
+
