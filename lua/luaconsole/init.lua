@@ -19,6 +19,7 @@ local status              = "Idle..."
 
 local openGUI             = true
 local shouldDrawGUI       = true
+local running             = true -- UPDATED: decouple script lifetime from window visibility to prevent accidental auto-exit
 local CHANNEL_COLOR       = IM_COL32(215, 154, 66)
 
 local settings_path       = mq.configDir .. '/luaconsole_settings.lua'
@@ -199,15 +200,24 @@ local function LuaConsoleGUI()
 end
 
 mq.imgui.init('LuaConsoleGUI', LuaConsoleGUI)
-mq.bind('/lc', function()
-    openGUI = not openGUI
+mq.bind('/lc', function(arg)
+    local cmd = tostring(arg or ''):lower()
+    if cmd == 'show' then
+        openGUI = true -- UPDATED: explicit show command keeps script running
+    elseif cmd == 'hide' then
+        openGUI = false -- UPDATED: explicit hide command no longer exits script
+    elseif cmd == 'quit' or cmd == 'stop' then
+        running = false -- UPDATED: explicit quit command cleanly stops script
+    else
+        openGUI = not openGUI -- UPDATED: keep legacy toggle behavior for /lc
+    end
 end)
 
 LogToConsole("\awLua Console by: \amDerple \awLoaded...")
 
 LoadSettings()
 
-while openGUI do
+while running do
     if execRequested then
         execRequested = false
         execCoroutine = ExecCoroutine()
@@ -231,3 +241,5 @@ while openGUI do
 end
 
 SaveSettings()
+mq.unbind('/lc') -- UPDATED: remove bind on shutdown
+pcall(function() mq.imgui.destroy('LuaConsoleGUI') end) -- UPDATED: detach ImGui callback on shutdown
