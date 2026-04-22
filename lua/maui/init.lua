@@ -4319,8 +4319,15 @@ local function DrawIntegrationsTab()
                 end
                 ImGui.SameLine()
                 if ImGui.Button('Open', bw, 0) then
-                    mq.cmd(tool.openCmd)
-                    bottomActionMsg = tool.name..': open/toggle command sent'
+                    if tool.script == 'luaconsole' then
+                        mq.cmd('/lua stop luaconsole') -- UPDATED: force restart to avoid stale toggle-bind instances
+                        mq.delay(50) -- UPDATED: brief yield between stop/run for deterministic restart
+                        mq.cmd('/lua run luaconsole') -- UPDATED: launch fresh console instance in visible default state
+                        bottomActionMsg = tool.name..': restarted and opened'
+                    else
+                        mq.cmd(tool.openCmd)
+                        bottomActionMsg = tool.name..': open/toggle command sent'
+                    end
                 end
             end
             ImGui.EndChild()
@@ -4836,4 +4843,5 @@ end
 mq.unevent('NewSpellMemmed') -- UPDATED: unregister event handler on script shutdown
 mq.unbind('/maui') -- UPDATED: remove slash-command binding on script shutdown
 pcall(function() mq.imgui.destroy('MuleAssist') end) -- UPDATED: ensure ImGui callback is detached during normal termination
+
 
