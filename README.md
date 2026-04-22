@@ -132,9 +132,9 @@ Original Author of Maui = aquietone (My version highly edited/altered, arguably 
 https://www.redguides.com/community/resources/maui-muleassist-ui.2207/
 
 Special Thanks for Spawnwatch, Ezinventory, Smartloot, Grouper (some ive revamped a tad for person reasons) = Andude2
-https://github.com/andude2/EZBots
-https://github.com/andude2/smartloot
-https://github.com/andude2/EZInventory
+- EZBots: https://github.com/andude2/EZBots
+- SmartLoot: https://github.com/andude2/smartloot
+- EZInventory: https://github.com/andude2/EZInventory
 
 Original Author Button Master = Special Ed
 https://www.redguides.com/community/resources/button-master.2174/
